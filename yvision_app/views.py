@@ -40,9 +40,15 @@ class BotView(View):
             chat_id = payload['message']['chat']['id']
             cmd = payload['message'].get('text')
             func = commands.get(cmd.split()[0].lower())
-            print(func)
             if func:
-                telegramBot.sendMessage(chat_id, func, parse_mode='Markdown')
+                if cmd == '/start':
+                    code, response = parse_rss()
+                    if code == 200:
+                        telegramBot.sendMessage(chat_id, response, parse_mode='Markdown')
+                    else:
+                        telegramBot.sendMessage(chat_id, 'Yvision site not working!', parse_mode='Markdown')
+                else:
+                    telegramBot.sendMessage(chat_id, func, parse_mode='Markdown')
             else:
                 telegramBot.sendMessage(chat_id, 'Not valid command!')
 
