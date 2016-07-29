@@ -10,6 +10,7 @@ from .parse import parse_rss
 
 telegramBot = telepot.Bot('257403594:AAHUskFwrhb5Zx-XqKZ3npVQ9D2JbTiNme0')
 
+
 def showPosts():
     return render_to_string('feed.md', {'items': parse_rss()[1]})
 
