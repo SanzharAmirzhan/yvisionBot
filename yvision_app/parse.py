@@ -5,11 +5,8 @@ def parse_rss():
     req = requests.get('http://yvision.kz/feed')
 
     response = []
-    code = True
 
-    if req.status_code != 200:
-        code = False
-    else:
+    if req.status_code == 200:
         soup = BeautifulSoup(req.content,"html.parser")
         some = soup.find_all('item')[:5]
 
@@ -18,4 +15,4 @@ def parse_rss():
             res['title'] = item.title.string
             res['link'] = item.link.string
             response.append(res)
-    return (code, response)
+    return (req.status_code, response)
