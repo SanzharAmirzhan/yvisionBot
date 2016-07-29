@@ -43,6 +43,7 @@ class BotView(View):
             if func:
                 if cmd == '/start':
                     code, response = parse_rss()
+                    print(code)
                     if code == 200:
                         telegramBot.sendMessage(chat_id, response, parse_mode='Markdown')
                     else:
