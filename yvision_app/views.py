@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .parse import parse_rss
 
-telegramBot = telepot.Bot('')
+telegramBot = telepot.Bot('257403594:AAHUskFwrhb5Zx-XqKZ3npVQ9D2JbTiNme0')
 
 
 def showPosts():
@@ -21,7 +21,7 @@ def showHelp():
 
 class BotView(View):
     def post(self, request, botToken):
-        if botToken != '':
+        if botToken != '257403594:AAHUskFwrhb5Zx-XqKZ3npVQ9D2JbTiNme0':
             return HttpResponseForbidden('Invalid token')
 
         commands = {
