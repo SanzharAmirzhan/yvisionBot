@@ -44,11 +44,11 @@ class BotView(View):
                 if cmd == '/start':
                     (code, response) = parse_rss()
                     if code == 200:
-                        telegramBot.sendMessage(chat_id, func, parse_mode='Markdown')
+                        telegramBot.sendMessage(chat_id, func)
                     else:
-                        telegramBot.sendMessage(chat_id, 'Bad request!', parse_mode='Markdown')
+                        telegramBot.sendMessage(chat_id, 'Bad request!')
                 else:
-                    telegramBot.sendMessage(chat_id, func, parse_mode='Markdown')
+                    telegramBot.sendMessage(chat_id, func)
             else:
                 telegramBot.sendMessage(chat_id, 'Not valid command!')
 
