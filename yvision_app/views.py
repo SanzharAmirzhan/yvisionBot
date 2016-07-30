@@ -46,7 +46,7 @@ class BotView(View):
                     if code == 200:
                         telegramBot.sendMessage(chat_id, func, parse_mode='Markdown')
                     else:
-                        telegramBot.sendMessage(chat_id, 'Some problems occurs!', parse_mode='Markdown')
+                        telegramBot.sendMessage(chat_id, 'Bad request!', parse_mode='Markdown')
                 else:
                     telegramBot.sendMessage(chat_id, func, parse_mode='Markdown')
             else:

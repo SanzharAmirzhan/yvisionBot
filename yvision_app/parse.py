@@ -2,9 +2,11 @@ from bs4 import BeautifulSoup
 import requests
 
 def parse_rss():
-    req = requests.get('http://yvision.kz/feed')
-
     response = []
+    try:
+        req = requests.get('http://yvision.kz/feed')
+    except requests.exceptions.RequestException as e:
+        return (-1, response)
 
     if req.status_code == 200:
         soup = BeautifulSoup(req.content,"html.parser")
